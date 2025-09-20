@@ -4,129 +4,227 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Premium Packers and Movers in Hyderabad. Professional moving services across India with insured relocations, packing, car transport, and storage solutions.">
-    <meta name="keywords" content="packers movers Hyderabad, moving services Hyderabad, relocation services India, Banjara Hills, Jubilee Hills, Gachibowli, Hitech City">
+    <meta name="keywords" content="packers movers Hyderabad, moving services Hyderabad, relocation services India, professional movers Banjara Hills, Jubilee Hills, Gachibowli, Hitech City">
+    <meta name="author" content="Services Mover & Packers">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Services Mover & Packers - Premium Moving Services in Hyderabad">
+    <meta property="og:description" content="Hyderabad's trusted relocation experts serving all major Indian cities with insured moves, professional packing, and premium service.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sundayrkb.github.io/ServicesMover/">
     <title>Services Mover & Packers - Premium Moving Services in Hyderabad | All India Coverage</title>
+    
+    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
+    <header class="header" role="banner">
         <div class="container">
-            <div class="logo">
-                <img src="https://user-gen-media-assets.s3.amazonaws.com/gemini_images/3ad19a73-f790-47f7-8142-94e3fb8ea711.png" alt="Services Mover & Packers" class="logo-img">
-                <span>Services Mover & Packers</span>
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-truck" aria-hidden="true"></i>
+                    <span>Services Mover & Packers</span>
+                </div>
+                <nav class="desktop-nav" aria-label="Main navigation">
+                    <ul class="nav-links">
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone" aria-hidden="true"></i>
+                        <a href="tel:+919293120124">+91-9293120124</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        <a href="mailto:info@servicesmover.tk">info@servicesmover.tk</a>
+                    </div>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
             </div>
-            <nav class="nav">
-                <a href="#services">Services</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-            </nav>
-            <button class="menu-btn" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
     </header>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#services" onclick="toggleMenu()">Services</a>
-        <a href="#about" onclick="toggleMenu()">About</a>
-        <a href="#contact" onclick="toggleMenu()">Contact</a>
-        <a href="tel:+919293120124" class="phone-btn">
-            <i class="fas fa-phone"></i> Call Now
-        </a>
-    </div>
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+        <ul class="mobile-nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="tel:+919293120124" class="mobile-phone">
+                <i class="fas fa-phone" aria-hidden="true"></i> Call Now
+            </a></li>
+        </ul>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-bg">
-            <img src="https://user-gen-media-assets.s3.amazonaws.com/gemini_images/f8524746-d5d0-4517-a89f-3c1de1c7937b.png" alt="Professional moving services" class="hero-img">
-        </div>
-        <div class="hero-content">
-            <h1>Premium Packers & Movers</h1>
-            <p>Hyderabad's Trusted Relocation Experts - Serving All Major Indian Cities</p>
-            <div class="hero-btns">
-                <a href="#contact" class="btn btn-primary">Get Free Quote</a>
-                <a href="tel:+919293120124" class="btn btn-secondary">Call Now</a>
+    <section class="hero" role="banner">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Premium Packers & Movers</h1>
+                <p class="hero-subtitle">Hyderabad's Trusted Relocation Experts - Serving All Major Indian Cities</p>
+                <div class="hero-cta">
+                    <a href="#contact" class="cta-button cta-primary">
+                        <i class="fas fa-calculator" aria-hidden="true"></i>
+                        Get Free Quote
+                    </a>
+                    <a href="tel:+919293120124" class="cta-button cta-secondary">
+                        <i class="fas fa-phone" aria-hidden="true"></i>
+                        Call Now
+                    </a>
+                </div>
             </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <i class="fas fa-chevron-down" aria-hidden="true"></i>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section class="services" id="services">
+    <section class="services" id="services" role="main">
         <div class="container">
-            <h2>Our Premium Services</h2>
-            <p class="subtitle">Professional moving solutions designed for your specific needs</p>
-            <div class="service-grid">
-                <div class="service-card">
-                    <i class="fas fa-home"></i>
+            <div class="section-header">
+                <h2 class="section-title">Our Premium Services</h2>
+                <p class="section-subtitle">Professional moving solutions designed for your specific needs</p>
+            </div>
+            <div class="services-grid">
+                <article class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                    </div>
                     <h3>Home Relocation</h3>
                     <p>Local & long-distance moving with professional packing and unpacking services. Minimal downtime guaranteed.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-building"></i>
+                    <div class="service-features">
+                        <span class="feature-tag">✓ Professional Packing</span>
+                        <span class="feature-tag">✓ Safe Transport</span>
+                    </div>
+                </article>
+                
+                <article class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building" aria-hidden="true"></i>
+                    </div>
                     <h3>Office Moving</h3>
                     <p>Commercial office moves handled professionally with minimal business disruption and secure handling.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-car"></i>
+                    <div class="service-features">
+                        <span class="feature-tag">✓ Minimal Downtime</span>
+                        <span class="feature-tag">✓ IT Equipment Care</span>
+                    </div>
+                </article>
+                
+                <article class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-car" aria-hidden="true"></i>
+                    </div>
                     <h3>Vehicle Transport</h3>
                     <p>Door-to-door car transport services with comprehensive insurance coverage and damage protection.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-warehouse"></i>
+                    <div class="service-features">
+                        <span class="feature-tag">✓ Full Insurance</span>
+                        <span class="feature-tag">✓ Door-to-Door</span>
+                    </div>
+                </article>
+                
+                <article class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-warehouse" aria-hidden="true"></i>
+                    </div>
                     <h3>Storage Solutions</h3>
                     <p>Secure short and long-term storage facilities with advanced inventory tracking systems.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-box"></i>
+                    <div class="service-features">
+                        <span class="feature-tag">✓ Climate Controlled</span>
+                        <span class="feature-tag">✓ 24/7 Security</span>
+                    </div>
+                </article>
+                
+                <article class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-box" aria-hidden="true"></i>
+                    </div>
                     <h3>Premium Packing</h3>
                     <p>Premium packing materials and trained staff specialized in handling fragile and valuable items.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-shield-alt"></i>
+                    <div class="service-features">
+                        <span class="feature-tag">✓ Premium Materials</span>
+                        <span class="feature-tag">✓ Fragile Care</span>
+                    </div>
+                </article>
+                
+                <article class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                    </div>
                     <h3>Insured Moves</h3>
                     <p>Comprehensive insurance coverage for all your belongings during the entire relocation process.</p>
-                </div>
+                    <div class="service-features">
+                        <span class="feature-tag">✓ Full Coverage</span>
+                        <span class="feature-tag">✓ Quick Claims</span>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about" id="about">
+    <section class="about" id="about" role="complementary">
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Why Choose Services Mover & Packers?</h2>
-                    <p class="subtitle">Your trusted relocation partner in Hyderabad and across India</p>
-                    <p>We're a Hyderabad-based premium moving company specializing in insured relocations and end-to-end packing services across India. Our commitment to excellence and customer satisfaction has made us the preferred choice for thousands of families and businesses.</p>
-                    <p><strong>Primary Service Areas:</strong> Hyderabad (Banjara Hills, Jubilee Hills, Gachibowli, Hitech City) with nationwide coverage across all major Indian cities.</p>
-                    <div class="badges">
-                        <span class="badge"><i class="fas fa-check-circle"></i> Fully Insured</span>
-                        <span class="badge"><i class="fas fa-users"></i> Verified Staff</span>
-                        <span class="badge"><i class="fas fa-clock"></i> 24x7 Support</span>
-                        <span class="badge"><i class="fas fa-star"></i> Premium Service</span>
+                    <div class="section-header">
+                        <h2>Why Choose Services Mover & Packers?</h2>
+                        <p class="section-subtitle">Your trusted relocation partner in Hyderabad and across India</p>
+                    </div>
+                    <div class="about-description">
+                        <p>We're a Hyderabad-based premium moving company specializing in insured relocations and end-to-end packing services across India. Our commitment to excellence and customer satisfaction has made us the preferred choice for thousands of families and businesses.</p>
+                        <p><strong>Primary Service Areas:</strong> Hyderabad (Banjara Hills, Jubilee Hills, Gachibowli, Hitech City) with nationwide coverage across all major Indian cities.</p>
+                    </div>
+                    
+                    <div class="trust-badges">
+                        <div class="badge">
+                            <i class="fas fa-check-circle" aria-hidden="true"></i>
+                            <span>Fully Insured</span>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-users" aria-hidden="true"></i>
+                            <span>Verified Staff</span>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-clock" aria-hidden="true"></i>
+                            <span>24x7 Support</span>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <span>Premium Service</span>
+                        </div>
                     </div>
                 </div>
-                <div class="stats">
-                    <div class="stat">
-                        <span class="number">5000+</span>
-                        <span class="label">Happy Customers</span>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">5000+</div>
+                        <div class="stat-label">Happy Customers</div>
                     </div>
-                    <div class="stat">
-                        <span class="number">15+</span>
-                        <span class="label">Years Experience</span>
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Years Experience</div>
                     </div>
-                    <div class="stat">
-                        <span class="number">500+</span>
-                        <span class="label">Cities Covered</span>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Cities Covered</div>
                     </div>
-                    <div class="stat">
-                        <span class="number">100%</span>
-                        <span class="label">Insured Moves</span>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Insured Moves</div>
                     </div>
                 </div>
             </div>
@@ -134,78 +232,123 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
+    <section class="contact" id="contact" role="contentinfo">
         <div class="container">
-            <h2>Contact Us Today</h2>
-            <p class="subtitle">Get in touch for a free quote and consultation</p>
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <h3>Call Us</h3>
-                    <a href="tel:+919293120124">+91-9293120124</a>
-                    <small>Available 24/7 for emergencies</small>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <h3>Email Us</h3>
-                    <a href="mailto:info@servicesmover.tk">info@servicesmover.tk</a>
-                    <small>Response within 2 hours</small>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Service Areas</h3>
-                    <p>Hyderabad & All Major Indian Cities</p>
-                    <small>Free quotes for all locations</small>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-whatsapp"></i>
-                    <h3>WhatsApp</h3>
-                    <a href="https://wa.me/919293120124?text=Hi, I need a quote for moving services">Chat with us instantly</a>
-                    <small>Quick quotes and support</small>
-                </div>
+            <div class="section-header">
+                <h2 class="section-title contact-title">Contact Us Today</h2>
+                <p class="section-subtitle">Get in touch for a free quote and consultation</p>
             </div>
-            <div class="cta-center">
-                <a href="https://wa.me/919293120124?text=Hi, I need a quote for moving services" class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> Get Instant Quote on WhatsApp
-                </a>
+            <div class="contact-content">
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone" aria-hidden="true"></i>
+                        </div>
+                        <h3>Call Us</h3>
+                        <p><a href="tel:+919293120124">+91-9293120124</a></p>
+                        <small>Available 24/7 for emergencies</small>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                        </div>
+                        <h3>Email Us</h3>
+                        <p><a href="mailto:info@servicesmover.tk">info@servicesmover.tk</a></p>
+                        <small>Response within 2 hours</small>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                        </div>
+                        <h3>Service Areas</h3>
+                        <p>Hyderabad & All Major Indian Cities</p>
+                        <small>Free quotes for all locations</small>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                        </div>
+                        <h3>WhatsApp</h3>
+                        <p><a href="https://wa.me/919293120124?text=Hi, I need a quote for moving services">Chat with us instantly</a></p>
+                        <small>Quick quotes and support</small>
+                    </div>
+                </div>
+                
+                <div class="contact-cta">
+                    <a href="https://wa.me/919293120124?text=Hi, I need a quote for moving services" class="cta-button cta-primary">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                        Get Instant Quote on WhatsApp
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/919293120124?text=Hi, I need a quote for moving services" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener"
+       aria-label="Contact us on WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        <span class="whatsapp-tooltip">Need help? Chat with us!</span>
+    </a>
+
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-left">
-                    <div class="logo">
-                        <img src="https://user-gen-media-assets.s3.amazonaws.com/gemini_images/3ad19a73-f790-47f7-8142-94e3fb8ea711.png" alt="Services Mover & Packers" class="logo-img">
+                <div class="footer-main">
+                    <div class="footer-logo">
+                        <i class="fas fa-truck" aria-hidden="true"></i>
                         <span>Services Mover & Packers</span>
                     </div>
                     <p>&copy; 2025 Services Mover & Packers. All rights reserved.</p>
+                    <p>Premium Moving Services in Hyderabad & All India</p>
                 </div>
-                <div class="footer-right">
+                <div class="footer-links">
                     <div class="footer-section">
                         <h4>Quick Links</h4>
-                        <a href="#services">Our Services</a>
-                        <a href="#about">About Us</a>
-                        <a href="#contact">Contact</a>
+                        <ul>
+                            <li><a href="#services">Our Services</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Services</h4>
+                        <ul>
+                            <li>Home Relocation</li>
+                            <li>Office Moving</li>
+                            <li>Vehicle Transport</li>
+                            <li>Storage Solutions</li>
+                        </ul>
                     </div>
                     <div class="footer-section">
                         <h4>Contact Info</h4>
-                        <a href="tel:+919293120124">+91-9293120124</a>
-                        <a href="mailto:info@servicesmover.tk">info@servicesmover.tk</a>
-                        <span>Hyderabad, India</span>
+                        <ul>
+                            <li><a href="tel:+919293120124">+91-9293120124</a></li>
+                            <li><a href="mailto:info@servicesmover.tk">info@servicesmover.tk</a></li>
+                            <li>Hyderabad, India</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/919293120124?text=Hi, I need a quote for moving services" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-content">
+            <i class="fas fa-truck loading-icon" aria-hidden="true"></i>
+            <div class="loading-text">Loading...</div>
+        </div>
+    </div>
 
+    <!-- Custom JavaScript -->
     <script src="js/script.js"></script>
 </body>
 </html>
