@@ -15,6 +15,7 @@
   --color-teal-300: rgba(50, 184, 198, 1);
   --color-teal-400: rgba(45, 166, 178, 1);
   --color-teal-500: rgba(33, 128, 141, 1);
+  --color-green-500: rgb(87, 230, 75);
   --color-teal-600: rgba(29, 116, 128, 1);
   --color-teal-700: rgba(26, 104, 115, 1);
   --color-teal-800: rgba(41, 150, 161, 1);
@@ -1014,8 +1015,8 @@ body {
     position: fixed;
     bottom: var(--space-32);
     right: var(--space-32);
-    background: var(--color-success);
-    color: var(--color-btn-primary-text);
+    background: rgb(87 240 80);
+    color: rgb(26, 29, 26);
     width: 60px;
     height: 60px;
     border-radius: var(--radius-full);
