@@ -1,6 +1,121 @@
-# Allow all search engines to crawl the site
-User-agent: *
-Allow:/
+# GOOGLE SEARCH ENGINE CRAWLERS (Required for Google Ads & SEO)
+User-agent: Googlebot
+Disallow:
 
-# Sitemap location
+User-agent: AdsBot-Google
+Disallow:
+
+User-agent: AdsBot-Google-Mobile
+Disallow:
+
+User-agent: Googlebot-Image
+Disallow:
+
+User-agent: Googlebot-Mobile
+Disallow:
+
+User-agent: Googlebot-News
+Disallow:
+
+User-agent: Google-Extended
+Disallow:
+
+# MICROSOFT SEARCH ENGINE CRAWLERS
+User-agent: Bingbot
+Disallow:
+
+User-agent: MSnbot
+Disallow:
+
+# AI SEARCH ENGINES & LLM CRAWLERS (2025)
+# OpenAI ChatGPT Crawlers
+User-agent: GPTBot
+Disallow:
+
+User-agent: ChatGPT-User
+Disallow:
+
+User-agent: OAI-SearchBot
+Disallow:
+
+# Anthropic Claude Crawlers
+User-agent: ClaudeBot
+Disallow:
+
+User-agent: Claude-User
+Disallow:
+
+User-agent: Claude-SearchBot
+Disallow:
+
+User-agent: Claude-Web
+Disallow:
+
+# Perplexity AI Crawlers
+User-agent: PerplexityBot
+Disallow:
+
+User-agent: Perplexity-User
+Disallow:
+
+# Google Gemini/Bard Crawlers
+User-agent: Google-InspectionTool
+Disallow:
+
+User-agent: GoogleOther
+Disallow:
+
+# Meta/Facebook AI Crawlers
+User-agent: meta-externalagent
+Disallow:
+
+User-agent: meta-externalfetcher
+Disallow:
+
+User-agent: FacebookBot
+Disallow:
+
+# Other AI Search & LLM Crawlers
+User-agent: CCBot
+Disallow:
+
+User-agent: Omgilibot
+Disallow:
+
+User-agent: Applebot
+Disallow:
+
+User-agent: AppleBot-Extended
+Disallow:
+
+User-agent: YouBot
+Disallow:
+
+User-agent: Anthropic-ai
+Disallow:
+
+User-agent: cohere-ai
+Disallow:
+
+User-agent: DuckDuckBot
+Disallow:
+
+# TRADITIONAL SEARCH ENGINES
+User-agent: Slurp
+Disallow:
+
+User-agent: DuckDuckBot
+Disallow:
+
+User-agent: Baiduspider
+Disallow:
+
+User-agent: YandexBot
+Disallow:
+
+# ALLOW ALL OTHER CRAWLERS
+User-agent: *
+Disallow:
+
+# SITEMAP LOCATION
 Sitemap: https://sundayrkb.github.io/ServicesMover/sitemap.xml
