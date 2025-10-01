@@ -558,6 +558,7 @@ body {
 
 .contact-title {
   color: var(--color-white) !important;
+  text-align: center;
 }
 
 .contact-grid {
