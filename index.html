@@ -32,6 +32,11 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- DNS prefetch section for faster CDN loading -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+
     <!-- Favicons and App Icons -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -39,10 +44,11 @@
     <!-- <meta name="google-site-verification" content="y46GRGdaxooW1eBgHXPcogaDcoA2076_i7QF0EtEheU" /> -->
     <meta name="google-site-verification" content="npvvHWWtS5d04YRZyKPERRdbnJSDQizaYAPCmcA0yTY" />
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-5BT7JWT3');
     </script>
     <!-- End Google Tag Manager -->
@@ -67,7 +73,6 @@
     </script>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
     <title>Bhartiya Packers and Movers - Premium Affordable Moving Services in Hyderabad | All India Coverage</title>
 
@@ -77,11 +82,13 @@
     <a href="#main" class="sr-only">Skip to main content</a>
 
     <!-- Header with Mobile-First Navigation -->
-    <header class="header" id="header">
+    <header class="header" id="header" role="banner">
         <div class="container">
             <div class="header-content">
+                <!-- Logo -->
                 <div class="logo">
-                    <a href="tel:+917330777575" class="logo"><i class="fas fa-truck-moving" aria-hidden="true"></i>Bhartiya Packers     Movers</a>
+                    <i class="fas fa-truck-moving" aria-hidden="true"></i>
+                    <span>Bhartiya Packers & Movers </span>
                 </div>
 
                 <!-- Mobile Menu Toggle -->
@@ -238,7 +245,7 @@
                     <div class="about-image">
                         <div class="image-placeholder">
                             <i class="fas fa-truck-loading" aria-hidden="true"></i>
-                            <h4 class="placeholder-title">Professional Moving Team</h4>
+                            <h3 class="placeholder-title">Professional Moving Team</h3>
                             <p class="placeholder-subtitle">Experienced professionals handling your valuables with care</p>
                         </div>
                     </div>
@@ -271,7 +278,7 @@
 
                     <div class="contact-item">
                         <i class="fab fa-whatsapp" aria-hidden="true"></i>
-                        <a href="https://wa.me/917671004939" class="contact-link"><h3>Chat For Packers and Movers 7671004939</h3></a>
+                        <a href="https://wa.me/917671004939?text=Hi,%20I%20need%20a%20quote%20for%20Packers%20and%20Movers%20services" class="contact-link"><h3>Chat For Packers and Movers 7671004939</h3></a>
                     </div>
                 </div>                
             </div>
@@ -279,7 +286,7 @@
     </main>
     
     <!-- Enhanced WhatsApp Float Button -->
-    <a href="https://wa.me/917330777575" class="whatsapp-float" 
+    <a href="https://wa.me/917330777575?text=Hi, I need a quote for Packers and Movers services" class="whatsapp-float" 
        aria-label="Contact us on WhatsApp" 
        target="_blank" 
        rel="noopener">
@@ -296,7 +303,17 @@
     </footer>
 
     <!-- Enhanced JavaScript -->
+
     <script src="js/script.js"></script>
+
+    <!-- <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            const script = document.createElement('script');
+            script.src = 'js/script.js';
+            script.defer = true;
+            document.head.appendChild(script);
+         });
+    </script> -->
 
     <!-- Service Worker for PWA (Future Enhancement) -->
     <script>
