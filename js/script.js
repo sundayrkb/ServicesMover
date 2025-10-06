@@ -181,11 +181,11 @@ function initHeaderScrollEffect() {
 
         // Background and shadow changes
         if (scrollY > 50) {
-            header.style.background = 'rgba(33, 128, 133, 0.95)';
+            header.style.background = 'rgba(235, 231, 9, 0.95)';
             header.style.backdropFilter = 'blur(10px)';
-            header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
+            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
         } else {
-            header.style.background = 'linear-gradient(135deg, #218085 0%, #145054 100%)';
+            header.style.background = 'linear-gradient(135deg, #96da29ff 0%, #d4a919ff 100%)';
             header.style.backdropFilter = 'none';
             header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
         }

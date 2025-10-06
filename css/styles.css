@@ -44,6 +44,9 @@
   --color-gray-700: #374151;
   --color-gray-800: #1f2937;
   --color-gray-900: #111827;
+  --color-organe: orange;
+  --color-blue: rgb(41, 60, 236);
+  --color-green: #6ec456;
 
   /* Responsive Layout */
   --container-padding: clamp(16px, 4vw, 32px);
@@ -139,7 +142,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-active) 100%);
+  background: var(--color-organe);
   color: var(--color-white);
   padding: var(--space-md) 0;
   z-index: 1000;
@@ -276,7 +279,7 @@ body {
 /* Enhanced Hero Section */
 .hero {
   min-height: 100vh;
-  background: linear-gradient(rgba(33, 128, 133, 0.8), rgba(33, 128, 133, 0.8)),
+  background: linear-gradient(rgba(228, 178, 14, 0.8), rgba(62, 221, 230, 0.8)),
               url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBmaWxsPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDUpIi8+CjxwYXRoIGQ9Ik0xMCAwTDIwIDEwTDEwIDIwTDAgMTBMMTAgMFoiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4xKSIvPgo8L3N2Zz4K');
   background-size: 40px 40px;
   background-position: 0 0, 20px 20px;
@@ -296,16 +299,12 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(45deg, 
-    rgba(33, 128, 133, 0.9) 0%, 
-    rgba(35, 196, 131, 0.7) 50%, 
-    rgba(33, 128, 133, 0.9) 100%);
+  background: var(--color-blue);
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 800px;
   padding: var(--space-xl) 0;
 }
 
@@ -419,7 +418,7 @@ body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(238, 241, 18, 0.2), transparent);
   transition: left var(--transition-slow);
 }
 
@@ -553,7 +552,6 @@ body {
   padding: var(--section-padding) 0;
   background: var(--color-primary);
   color: var(--color-white);
-  padding-right: 133px;
 }
 
 .contact-title {
@@ -571,10 +569,12 @@ body {
 .contact-item {
   text-align: center;
   padding: var(--space-lg);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-full);
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   transition: all var(--transition-normal);
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .contact-item:hover {
@@ -683,7 +683,7 @@ body {
     top: 100%;
     left: 0;
     right: 0;
-    background: var(--color-primary);
+    background: var(--color-green);
     padding: var(--space-lg);
     transform: translateY(-100%);
     opacity: 0;
@@ -710,6 +710,7 @@ body {
   .contact-info {
     flex-direction: column;
     gap: var(--space-sm);
+    margin-left: 20px;
   }
 
   .contact-email {
@@ -838,8 +839,8 @@ body {
 
 /* Extra large devices (Large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
+  .container {    
+    max-width: 100%;
   }
 
 }
