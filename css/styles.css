@@ -44,8 +44,6 @@
   --color-gray-700: #374151;
   --color-gray-800: #1f2937;
   --color-gray-900: #111827;
-  --color-organe: orange;
-  --color-blue: rgb(41, 60, 236);
 
   /* Responsive Layout */
   --container-padding: clamp(16px, 4vw, 32px);
@@ -141,7 +139,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  background: var(--color-organe);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-active) 100%);
   color: var(--color-white);
   padding: var(--space-md) 0;
   z-index: 1000;
@@ -298,13 +296,16 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--color-blue);
+  background: linear-gradient(45deg, 
+    rgba(33, 128, 133, 0.9) 0%, 
+    rgba(35, 196, 131, 0.7) 50%, 
+    rgba(33, 128, 133, 0.9) 100%);
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: inherit;
+  max-width: 800px;
   padding: var(--space-xl) 0;
 }
 
@@ -552,6 +553,7 @@ body {
   padding: var(--section-padding) 0;
   background: var(--color-primary);
   color: var(--color-white);
+  padding-right: 133px;
 }
 
 .contact-title {
@@ -569,12 +571,10 @@ body {
 .contact-item {
   text-align: center;
   padding: var(--space-lg);
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   transition: all var(--transition-normal);
-  align-items: center;
-  justify-content: space-evenly;
 }
 
 .contact-item:hover {
@@ -710,7 +710,6 @@ body {
   .contact-info {
     flex-direction: column;
     gap: var(--space-sm);
-    margin-left: 20px;
   }
 
   .contact-email {
@@ -840,7 +839,7 @@ body {
 /* Extra large devices (Large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   .container {
-    max-width: 100%;
+    max-width: 1140px;
   }
 
 }
