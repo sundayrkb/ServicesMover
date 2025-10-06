@@ -26,7 +26,12 @@
 
     <!-- Preload Critical Resources -->
     <link rel="preload" href="css/styles.css" as="style">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    <link 
+        rel="preload" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2" 
+        as="font" 
+        type="font/woff2" 
+    crossorigin> 
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/styles.css">
@@ -39,19 +44,48 @@
 
     <!-- Favicons and App Icons -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
 
     <!-- <meta name="google-site-verification" content="y46GRGdaxooW1eBgHXPcogaDcoA2076_i7QF0EtEheU" /> -->
     <meta name="google-site-verification" content="npvvHWWtS5d04YRZyKPERRdbnJSDQizaYAPCmcA0yTY" />
 
     <!-- Google Tag Manager -->
+
+        <!-- put before your main script -->
+    <script>
+        // Replace with your real GA4 measurement ID if you want the sendBeacon fallback to GA4
+        window.__GA_MEASUREMENT_ID__ = 'GTM-5BT7JWT3'; // e.g. G-ABCDEF123
+        // Replace with your GA4 API secret (create in GA4 Admin → Data Stream → Measurement Protocol secrets)
+        window.__GA_API_SECRET__ = 'EmZmssxwQJet0ssWWVb5ZA';
+    </script>
+
     <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-5BT7JWT3"></script>
+    
+    <script>
+        (function(w,d,s,l,i){
+            w[l]=w[l]||[];
+            w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+            var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+            j.async=true;
+            j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+            f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5BT7JWT3');
+    </script>
+
     <!-- End Google Tag Manager -->
 
     <title>Bhartiya Packers and Movers - Premium Affordable Moving Services in Hyderabad | All India Coverage</title>
 
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5BT7JWT3"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <!-- Skip to main content for accessibility -->
     <a href="#main" class="sr-only">Skip to main content</a>
 

@@ -318,67 +318,141 @@ function initContactFormValidation() {
 }
 
 // Enhanced WhatsApp float button functionality
-function initWhatsAppFloat() {
-    const whatsappButton = document.querySelector('.whatsapp-float');
+// Replace or update the initWhatsAppFloat() in your script.js with this implementation.
 
-    if (!whatsappButton) return;
-
-    // Add pulse animation periodically (disabled on mobile to save battery)
-    const isMobile = window.innerWidth < 768;
-
-    if (!isMobile) {
-        const pulseInterval = setInterval(() => {
-            whatsappButton.classList.add('pulse');
-            setTimeout(() => {
-                whatsappButton.classList.remove('pulse');
-            }, 2000);
-        }, 15000); // Pulse every 15 seconds
-
-        // Clear interval when page becomes hidden
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) {
-                clearInterval(pulseInterval);
-            }
-        });
-    }
-
-    // Enhanced click tracking
-    whatsappButton.addEventListener('click', function() {
-        // Analytics tracking
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'click', {
-                'event_category': 'engagement',
-                'event_label': 'whatsapp_button',
-                'value': 1
-            });
-        }
-
-        // Haptic feedback on mobile
-        if ('vibrate' in navigator) {
-            navigator.vibrate(50);
-        }
-    });
-
-    // Show/hide based on scroll position
-    let scrollTimeout;
-    window.addEventListener('scroll', function() {
-        clearTimeout(scrollTimeout);
-
-        // Hide button while scrolling for better UX
-        whatsappButton.style.opacity = '0.7';
-
-        scrollTimeout = setTimeout(() => {
-            whatsappButton.style.opacity = '1';
-        }, 150);
-
-        // Hide button when at top of page
-        if (window.pageYOffset < 200) {
-            whatsappButton.style.transform = 'scale(0)';
-        } else {
-            whatsappButton.style.transform = 'scale(1)';
-        }
-    }, { passive: true });
+function getGAClientId() {
+  // Read _ga cookie (format: GA1.2.1234567890.1234567890) and return last two parts as client_id
+  try {
+    const m = document.cookie.match(/_ga=([^;]+)/);
+    if (!m) return null;
+    const parts = m[1].split('.');
+    if (parts.length >= 2) return parts.slice(-2).join('.');
+  } catch (e) {
+    console.warn('getGAClientId error', e);
+  }
+  return null;
 }
+
+function initWhatsAppFloat() {
+  const whatsappButton = document.querySelector('.whatsapp-float');
+  if (!whatsappButton) return;
+
+  // (Optional) Keep the pulse behavior for desktop
+  const isMobile = window.innerWidth < 768;
+  if (!isMobile) {
+    const pulseInterval = setInterval(() => {
+      whatsappButton.classList.add('pulse');
+      setTimeout(() => whatsappButton.classList.remove('pulse'), 2000);
+    }, 150);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) clearInterval(pulseInterval);
+    });
+  }
+
+  // Robust click-tracking handler (non-blocking)
+  whatsappButton.addEventListener('click', function clickHandler(e) {
+    try {
+      // Haptic feedback for mobile
+      if ('vibrate' in navigator) {
+        navigator.vibrate(50);
+      }
+
+      // Build common analytics payload
+      const payload = {
+        event: 'whatsapp_click',
+        event_category: 'engagement',
+        event_label: 'whatsapp_button',
+        value: 1,
+        page_path: location.pathname,
+        page_title: document.title,
+        ts: Date.now()
+      };
+
+      // 1) Preferred: gtag if available -> use beacon transport (non-blocking)
+      if (typeof gtag !== 'undefined') {
+        try {
+          gtag('event', 'click', {
+            event_category: payload.event_category,
+            event_label: payload.event_label,
+            value: payload.value,
+            transport_type: 'beacon' // ask browser to use navigator.sendBeacon under the hood
+          });
+          // We do not prevent default — link opens immediately and gtag uses beacon.
+          console.debug('Analytics: gtag event queued (transport_type: beacon)');
+          return; // DONE
+        } catch (err) {
+          console.warn('Analytics: gtag error ->', err);
+          // fallback to other methods below
+        }
+      }
+
+      // 2) If using Google Tag Manager (dataLayer)
+      if (Array.isArray(window.dataLayer)) {
+        try {
+          window.dataLayer.push({
+            event: 'whatsapp_click',
+            event_category: payload.event_category,
+            event_label: payload.event_label,
+            value: payload.value
+          });
+          console.debug('Analytics: dataLayer push');
+          return; // DONE
+        } catch (err) {
+          console.warn('Analytics: dataLayer push failed ->', err);
+        }
+      }
+
+      // 3) Fallback: GA4 Measurement Protocol via sendBeacon (requires MEASUREMENT_ID and API_SECRET)
+      const MEASUREMENT_ID = window.__GA_MEASUREMENT_ID__;
+      const API_SECRET = window.__GA_API_SECRET__;
+      if (navigator.sendBeacon && MEASUREMENT_ID && API_SECRET && MEASUREMENT_ID !== 'G-XXXXXXX' && API_SECRET !== 'YOUR_API_SECRET') {
+        try {
+          const client_id = getGAClientId() || `cid-${Date.now()}`;
+          const body = {
+            client_id,
+            events: [
+              {
+                name: 'whatsapp_click',
+                params: {
+                  event_category: payload.event_category,
+                  event_label: payload.event_label,
+                  value: payload.value,
+                  page_path: payload.page_path
+                }
+              }
+            ]
+          };
+          const url = `https://www.google-analytics.com/mp/collect?measurement_id=${MEASUREMENT_ID}&api_secret=${API_SECRET}`;
+          const blob = new Blob([JSON.stringify(body)], { type: 'application/json' });
+          const ok = navigator.sendBeacon(url, blob);
+          console.debug('Analytics: sent sendBeacon to GA4 Measurement Protocol ->', ok);
+          return; // DONE
+        } catch (err) {
+          console.warn('Analytics: sendBeacon to GA4 failed ->', err);
+        }
+      }
+
+      // 4) Final fallback: call a server endpoint (keepalive) or fire a lightweight fetch (keepalive)
+      // You can implement /collect-event on your server to accept these logs.
+      try {
+        fetch('/collect-event', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+          keepalive: true
+        }).catch(() => { /* ignore network errors */ });
+        console.debug('Analytics: fetch keepalive fallback triggered');
+      } catch (err) {
+        console.warn('Analytics: fetch fallback error ->', err);
+      }
+
+    } catch (err) {
+      console.error('whatsapp click handler error', err);
+    }
+    // NOTE: We keep this listener passive/non-blocking so the link opens immediately.
+  }, { passive: true });
+}
+
 
 // Responsive utilities and enhancements
 function initResponsiveUtilities() {
@@ -453,22 +527,6 @@ function initResponsiveUtilities() {
 
 // Performance optimizations
 function initPerformanceOptimizations() {
-    // Preload critical resources
-    const criticalResources = [
-        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2',
-        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-brands-400.woff2'
-    ];
-
-    criticalResources.forEach(resource => {
-        const link = document.createElement('link');
-        link.rel = 'preload';
-        link.as = 'font';
-        link.href = resource;
-        link.type = 'font/woff2';
-        link.crossOrigin = 'anonymous';
-        document.head.appendChild(link);
-    });
-
     // Defer non-critical JavaScript
     function loadNonCriticalJS() {
         // Load analytics or other non-critical scripts here
