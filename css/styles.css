@@ -672,6 +672,7 @@ body {
   .logo {
     padding-right: 10px;
   }
+  
   .container {
     padding-left: var(--space-md);
     padding-right: var(--space-md);
