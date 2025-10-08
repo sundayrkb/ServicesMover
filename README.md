@@ -9,13 +9,13 @@ Files included:
 - js/main.js
 - sitemap.xml
 - robots.txt
-- CNAME (contains 'servicesmover.tk' by default)
+- CNAME (contains 'www.bhartiyapackersmovers.com' by default)
 
 IMPORTANT:
 1) Do NOT upload the ZIP file directly to GitHub -- extract it first.
 2) Edit index.html before upload to replace placeholders:
-   - Replace +91-XXXXXXXXXX with your phone number (search for '+91-XXXXXXXXXX').
-   - Replace info@servicesmover.tk if you want another email (search for 'info@servicesmover.tk').
+   - Replace +91-9293120124 with your phone number (search for '+91-7330777575').
+   - Replace info@bhartiyapackersmovers.com if you want another email (search for 'info@bhartiyapackersmovers.com').
    - If you don't have the freenom domain yet, delete or edit the 'CNAME' file before enabling GitHub Pages.
 
 Quick steps to publish on GitHub (web UI):
@@ -30,5 +30,5 @@ Quick steps to publish on GitHub (web UI):
 If you'd like, I can walk you through:
 - Creating the GitHub repo and uploading step-by-step (I'll tell you what to click).
 - Registering a free domain at Freenom and pointing DNS.
-- Setting up Zoho Mail for info@servicesmover.tk.
+- Setting up Zoho Mail for info@bhartiyapackersmovers.com
 - Final SEO checks and submitting sitemap to Google Search Console.
