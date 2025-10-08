@@ -669,6 +669,9 @@ body {
 
 /* Extra Small Devices (Portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
+  .logo {
+    padding-right: 10px;
+  }
   .container {
     padding-left: var(--space-md);
     padding-right: var(--space-md);
