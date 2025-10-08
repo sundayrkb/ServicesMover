@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         initResponsiveUtilities();
         initPerformanceOptimizations();
         initAccessibilityFeatures();
+        setCookieFor12Hours();
 
         console.log('✅ ServicesMover: All scripts initialized successfully');
     } catch (error) {
@@ -333,6 +334,22 @@ function getGAClientId() {
   return null;
 }
 
+
+function setCookieFor12Hours(name, value) {
+  // Calculate expiry in 12 hours (12 * 60 * 60 * 1000 milliseconds)
+  const date = new Date();
+  date.setTime(date.getTime() + (12 * 60 * 60 * 1000));
+  const expires = "expires=" + date.toUTCString();
+  
+  // Set the cookie
+  document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+// Example usage: Create a new cookie called 'my_session' that expires in 12 hours
+setCookieFor12Hours('my_session', 'session_value');
+
+// --- Example Usage ---
+// clearAllCookiesAndReload();
 function initWhatsAppFloat() {
   const whatsappButton = document.querySelector('.whatsapp-float');
   if (!whatsappButton) return;
