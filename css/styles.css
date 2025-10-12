@@ -703,7 +703,7 @@ body {
 /* Extra Small Devices (Portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
   .logo {
-    padding-right: 10px;
+    padding-right: 20px;
   }
   
   .container {
@@ -756,7 +756,7 @@ body {
 
   .hero {
     min-height: 100vh;
-    padding-top: 80px;
+    padding-top: 95px;
   }
 
   .hero-content {
