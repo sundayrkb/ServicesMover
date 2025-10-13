@@ -218,7 +218,7 @@ body {
   list-style: none;
   gap: var(--space-lg);
   margin: 0;
-  padding: 0;
+  padding: 10px;
 }
 
 .nav-link {
@@ -260,8 +260,15 @@ body {
 
 .contact-item {
   display: flex;
-  align-items: center;
   gap: var(--space-xs);
+  text-align: center;
+  padding: var(--space-lg);
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all var(--transition-normal);
+  align-items: baseline;
+  justify-content: space-evenly;
 }
 
 .contact-link {
@@ -597,17 +604,6 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: var(--space-xl);
   margin-top: var(--space-2xl);
-}
-
-.contact-item {
-  text-align: center;
-  padding: var(--space-lg);
-  border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  transition: all var(--transition-normal);
-  align-items: baseline;
-  justify-content: space-evenly;
 }
 
 .contact-item:hover {
