@@ -172,6 +172,10 @@ body {
   font-size: var(--font-size-xl);
 }
 
+.logo img {
+  max-width: 60px;
+}
+
 /* Mobile Menu Toggle */
 .mobile-menu-toggle {
   display: none;
@@ -702,6 +706,10 @@ body {
     padding-right: 20px;
   }
   
+  .logo span {
+    /* display: none; */
+  }
+
   .container {
     padding-left: var(--space-md);
     padding-right: var(--space-md);
