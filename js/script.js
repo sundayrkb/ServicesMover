@@ -82,7 +82,7 @@
         const target = document.querySelector(link.getAttribute("href"));
         if (!target) return;
         e.preventDefault();
-        const offset = window.innerWidth < 768 ? 70 : 80;
+        const offset = window.innerWidth < 768 ? 88 : 80;
         const top = target.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: reduceMotion ? "auto" : "smooth" });
         history.pushState(null, null, link.getAttribute("href"));
