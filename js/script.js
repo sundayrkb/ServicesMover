@@ -92,7 +92,7 @@
   }
 
   // ============================================
-  // HEADER SCROLL EFFECT
+  // HEADER SCROLL EFFECT (auto-hide on scroll down)
   // ============================================
   function initHeader() {
     const header = $(".header");
@@ -100,11 +100,25 @@
 
     let lastScroll = window.scrollY;
     let ticking = false;
+    const hideThreshold = 100;
+    const scrollThreshold = 10;
 
     const onScroll = () => {
       const current = window.scrollY;
-      if (current > 100) header.classList.add("header--scrolled");
-      else header.classList.remove("header--scrolled");
+      
+      if (current > hideThreshold) {
+        header.classList.add("header--scrolled");
+        
+        if (current > lastScroll + scrollThreshold) {
+          header.classList.add("header--hidden");
+        } else if (current < lastScroll - scrollThreshold) {
+          header.classList.remove("header--hidden");
+        }
+      } else {
+        header.classList.remove("header--scrolled");
+        header.classList.remove("header--hidden");
+      }
+      
       lastScroll = current;
       ticking = false;
     };
