@@ -1,0 +1,55 @@
+{
+  "name": "Bhartiya Packers and Movers",
+  "short_name": "Bhartiya Packers",
+  "description": "Premium packers and movers in Hyderabad offering professional home relocation, office moving, and vehicle transport services across India.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a6b6f",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "images/logo-48w.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/logo-96w.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/logo-192w.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/logo-512w.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "lifestyle"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Get Quote",
+      "short_name": "Quote",
+      "description": "Get a free moving quote via WhatsApp",
+      "url": "https://wa.me/919293120124?text=Hi%2C%20I%20need%20a%20quote%20for%20Packers%20and%20Movers%20services",
+      "icons": [{ "src": "images/logo-192w.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Call Us",
+      "short_name": "Call",
+      "description": "Call for immediate assistance",
+      "url": "tel:+919293120124",
+      "icons": [{ "src": "images/logo-192w.png", "sizes": "192x192" }]
+    }
+  ]
+}
