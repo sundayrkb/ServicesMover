@@ -19,3 +19,6 @@ npm-debug.log*
 
 # Project docs (local only)
 AGENTS.md
+
+# opencode
+.opencode/
