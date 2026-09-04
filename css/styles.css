@@ -396,11 +396,6 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
   .truck-icon--call{border-color:#0f4a4d}
 }
 
-/* Disable truck animation on mobile - WhatsApp float provides same actions */
-@media (max-width: 767px) {
-  .truck-animation { display: none; }
-}
-
 /* Print styles */
 @media print{
   .truck-animation{display:none}

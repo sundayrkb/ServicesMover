@@ -220,43 +220,25 @@
   // ============================================
   // TRUCK ANIMATION
   // ============================================
-  let truckInitialized = false;
-
   function initTruckAnimation() {
     const truck = $(".truck-animation");
     const container = $(".truck-container");
     const icons = $$(".truck-icon", truck);
     if (!truck || !container) return;
 
-    // Disable on mobile (< 768px) - WhatsApp float covers contact actions
-    if (window.innerWidth < 768) {
-      if (truckInitialized) {
-        container.style.animation = "none";
-        truckInitialized = false;
-      }
-      return;
-    }
-
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduceMotion) return;
-
-    truckInitialized = true;
 
     let isPaused = false;
     let animationDuration = 25000;
 
     const updateDuration = () => {
       const vw = window.innerWidth;
-      if (vw < 768) {
-        container.style.animation = "none";
-        truckInitialized = false;
-        return;
-      }
       if (vw >= 1200) animationDuration = 35000;
       else if (vw >= 992) animationDuration = 30000;
-      else animationDuration = 28000;
+      else if (vw >= 768) animationDuration = 28000;
+      else animationDuration = 22000;
       container.style.setProperty("--truck-duration", `${animationDuration}ms`);
-      container.style.animation = "";
     };
 
     updateDuration();
