@@ -220,33 +220,48 @@
   // ============================================
   // TRUCK ANIMATION
   // ============================================
+  let truckInitialized = false;
+
   function initTruckAnimation() {
     const truck = $(".truck-animation");
     const container = $(".truck-container");
     const icons = $$(".truck-icon", truck);
     if (!truck || !container) return;
 
+    // Disable on mobile (< 768px) - WhatsApp float covers contact actions
+    if (window.innerWidth < 768) {
+      if (truckInitialized) {
+        container.style.animation = "none";
+        truckInitialized = false;
+      }
+      return;
+    }
+
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduceMotion) return;
 
-    let isPaused = false;
-    let animationDuration = 25000; // 25 seconds default
+    truckInitialized = true;
 
-    // Adjust duration based on viewport width for consistent perceived speed
+    let isPaused = false;
+    let animationDuration = 25000;
+
     const updateDuration = () => {
       const vw = window.innerWidth;
-      // Longer duration on wider screens to maintain consistent visual speed
+      if (vw < 768) {
+        container.style.animation = "none";
+        truckInitialized = false;
+        return;
+      }
       if (vw >= 1200) animationDuration = 35000;
       else if (vw >= 992) animationDuration = 30000;
-      else if (vw >= 768) animationDuration = 28000;
-      else animationDuration = 25000;
+      else animationDuration = 28000;
       container.style.setProperty("--truck-duration", `${animationDuration}ms`);
+      container.style.animation = "";
     };
 
     updateDuration();
     window.addEventListener("resize", throttle(updateDuration, 250));
 
-    // Pause on hover/focus for accessibility
     truck.addEventListener("mouseenter", () => {
       isPaused = true;
       container.style.animationPlayState = "paused";
@@ -264,12 +279,10 @@
       container.style.animationPlayState = "running";
     });
 
-    // Pause when tab is not visible (Page Visibility API)
     document.addEventListener("visibilitychange", () => {
       container.style.animationPlayState = document.hidden ? "paused" : "running";
     });
 
-    // Analytics for icon clicks
     icons.forEach(icon => {
       icon.addEventListener("click", () => {
         const type = icon.classList.contains("truck-icon--whatsapp") ? "whatsapp" : "call";
@@ -282,7 +295,6 @@
       });
     });
 
-    // Randomize start position slightly for visual variety on reload
     const randomOffset = Math.random() * 5000;
     container.style.animationDelay = `-${randomOffset}ms`;
   }
