@@ -391,6 +391,81 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 <body>
 <a href="#main" class="sr-only">Skip to main content</a>
 
+<div class="truck-animation" aria-hidden="true" role="img" aria-label="Animated delivery truck with contact options">
+  <div class="truck-container">
+    <svg class="truck-svg" viewBox="0 0 200 120" aria-hidden="true">
+      <defs>
+        <linearGradient id="truck-body-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#1a6b6f"/>
+          <stop offset="100%" stop-color="#0f4a4d"/>
+        </linearGradient>
+        <linearGradient id="truck-cab-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#1eb980"/>
+          <stop offset="100%" stop-color="#189968"/>
+        </linearGradient>
+      </defs>
+      <!-- Truck body -->
+      <rect x="20" y="50" width="110" height="45" rx="4" fill="url(#truck-body-gradient)"/>
+      <!-- Truck cab -->
+      <path d="M20 50 L5 50 L5 25 L20 25 Z" fill="url(#truck-cab-gradient)"/>
+      <rect x="8" y="28" width="10" height="18" rx="2" fill="#fff" opacity="0.3"/>
+      <!-- Wheels -->
+      <circle cx="45" cy="98" r="16" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+      <circle cx="45" cy="98" r="9" fill="#334155"/>
+      <circle cx="110" cy="98" r="16" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+      <circle cx="110" cy="98" r="9" fill="#334155"/>
+      <!-- Wheel rotation indicators -->
+      <g class="wheel-spokes">
+        <line x1="45" y1="82" x2="45" y2="114" stroke="#475569" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="29" y1="98" x2="61" y2="98" stroke="#475569" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="110" y1="82" x2="110" y2="114" stroke="#475569" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="94" y1="98" x2="126" y2="98" stroke="#475569" stroke-width="1.5" stroke-linecap="round"/>
+      </g>
+      <!-- Cargo area details -->
+      <rect x="30" y="55" width="8" height="35" rx="2" fill="#fff" opacity="0.1"/>
+      <rect x="45" y="55" width="8" height="35" rx="2" fill="#fff" opacity="0.1"/>
+      <rect x="80" y="55" width="8" height="35" rx="2" fill="#fff" opacity="0.1"/>
+      <rect x="95" y="55" width="8" height="35" rx="2" fill="#fff" opacity="0.1"/>
+      <!-- Taillight -->
+      <rect x="128" y="65" width="4" height="20" rx="2" fill="#ef4444"/>
+      <!-- Headlight -->
+      <circle cx="5" cy="35" r="5" fill="#fef08a" opacity="0.9"/>
+      <!-- Company logo on truck side -->
+      <text x="75" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#fff" opacity="0.9">BPM</text>
+    </svg>
+    
+    <!-- Contact icons on truck -->
+    <div class="truck-icons">
+      <a href="https://wa.me/919293120124?text=Hi%2C%20I%20need%20a%20quote%20for%20Packers%20and%20Movers%20services" 
+         target="_blank" rel="noopener noreferrer" 
+         class="truck-icon truck-icon--whatsapp" 
+         aria-label="Chat on WhatsApp - opens in new tab"
+         data-analytics="truck_whatsapp_click">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+        <span class="truck-icon-tooltip">WhatsApp</span>
+      </a>
+      <a href="tel:+919293120124" 
+         class="truck-icon truck-icon--call" 
+         aria-label="Call us now"
+         data-analytics="truck_call_click">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+        <span class="truck-icon-tooltip">Call Now</span>
+      </a>
+    </div>
+    
+    <!-- Motion lines for speed effect -->
+    <div class="truck-speed-lines" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</div>
+
 <header class="header" id="header" role="banner">
   <div class="container">
     <div class="header-content">

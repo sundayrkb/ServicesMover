@@ -218,6 +218,76 @@
   }
 
   // ============================================
+  // TRUCK ANIMATION
+  // ============================================
+  function initTruckAnimation() {
+    const truck = $(".truck-animation");
+    const container = $(".truck-container");
+    const icons = $$(".truck-icon", truck);
+    if (!truck || !container) return;
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
+
+    let isPaused = false;
+    let animationDuration = 25000; // 25 seconds default
+
+    // Adjust duration based on viewport width for consistent perceived speed
+    const updateDuration = () => {
+      const vw = window.innerWidth;
+      // Longer duration on wider screens to maintain consistent visual speed
+      if (vw >= 1200) animationDuration = 35000;
+      else if (vw >= 992) animationDuration = 30000;
+      else if (vw >= 768) animationDuration = 28000;
+      else animationDuration = 25000;
+      container.style.setProperty("--truck-duration", `${animationDuration}ms`);
+    };
+
+    updateDuration();
+    window.addEventListener("resize", throttle(updateDuration, 250));
+
+    // Pause on hover/focus for accessibility
+    truck.addEventListener("mouseenter", () => {
+      isPaused = true;
+      container.style.animationPlayState = "paused";
+    });
+    truck.addEventListener("mouseleave", () => {
+      isPaused = false;
+      container.style.animationPlayState = "running";
+    });
+    truck.addEventListener("focusin", () => {
+      isPaused = true;
+      container.style.animationPlayState = "paused";
+    });
+    truck.addEventListener("focusout", () => {
+      isPaused = false;
+      container.style.animationPlayState = "running";
+    });
+
+    // Pause when tab is not visible (Page Visibility API)
+    document.addEventListener("visibilitychange", () => {
+      container.style.animationPlayState = document.hidden ? "paused" : "running";
+    });
+
+    // Analytics for icon clicks
+    icons.forEach(icon => {
+      icon.addEventListener("click", () => {
+        const type = icon.classList.contains("truck-icon--whatsapp") ? "whatsapp" : "call";
+        if (navigator.vibrate) navigator.vibrate(20);
+        sendAnalytics(`truck_${type}_click`, {
+          event_category: "engagement",
+          event_label: `truck_${type}`,
+          transport_type: "beacon"
+        });
+      });
+    });
+
+    // Randomize start position slightly for visual variety on reload
+    const randomOffset = Math.random() * 5000;
+    container.style.animationDelay = `-${randomOffset}ms`;
+  }
+
+  // ============================================
   // WHATSAPP FLOAT BUTTON
   // ============================================
   function initWhatsAppFloat() {
@@ -372,11 +442,16 @@
       // Disable WhatsApp pulse
       const wa = $(".whatsapp-float");
       if (wa) wa.style.animation = "none";
+      // Disable truck animation
+      const truck = $(".truck-container");
+      if (truck) truck.style.animation = "none";
     }
 
     conn.addEventListener("change", () => {
       const nowSlow = conn.saveData || conn.effectiveType === "slow-2g" || conn.effectiveType === "2g";
       document.documentElement.classList.toggle("slow-connection", nowSlow);
+      const truck = $(".truck-container");
+      if (truck) truck.style.animation = nowSlow ? "none" : "";
     });
   }
 
@@ -415,6 +490,7 @@
     initSmoothScroll();
     initHeader();
     initStats();
+    initTruckAnimation();
     initWhatsAppFloat();
     initCTATracking();
 

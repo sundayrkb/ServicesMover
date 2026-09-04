@@ -297,7 +297,109 @@ footer{scroll-margin-top:90px}
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
 @keyframes pulse{0%,100%{box-shadow:var(--sh-xl)}50%{box-shadow:0 16px 40px rgba(37,211,102,.5)}}
 
-/* Scroll-triggered animations */
+/* Truck Animation - Mobile first */
+.truck-animation{position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:var(--z-sticky);overflow:hidden}
+.truck-container{position:absolute;width:clamp(160px,35vw,280px);height:auto;animation:truckDrive var(--truck-duration,25s) linear infinite;will-change:transform}
+.truck-svg{width:100%;height:auto;display:block;filter:drop-shadow(0 8px 24px rgba(15,23,42,.15));transition:filter var(--tn)}
+.truck-container:hover .truck-svg,.truck-container:focus-within .truck-svg{filter:drop-shadow(0 12px 32px rgba(15,23,42,.25))}
+
+/* Wheel rotation animation */
+.wheel-spokes{animation:wheelSpin 0.8s linear infinite;transform-origin:center;transform-box:fill-box}
+
+/* Speed lines */
+.truck-speed-lines{position:absolute;top:50%;left:-60px;right:100%;display:flex;gap:8px;pointer-events:none;opacity:0;animation:speedLinesFade var(--truck-duration,25s) linear infinite}
+.truck-speed-lines span{width:40px;height:3px;background:linear-gradient(90deg,transparent,var(--pri),transparent);border-radius:2px;animation:speedLineMove 0.6s ease-out infinite;transform-origin:right center}
+.truck-speed-lines span:nth-child(1){top:-20px;animation-delay:0s}
+.truck-speed-lines span:nth-child(2){top:0;animation-delay:0.2s}
+.truck-speed-lines span:nth-child(3){top:20px;animation-delay:0.4s}
+
+/* Contact icons on truck */
+.truck-icons{position:absolute;top:-10px;right:-10px;display:flex;flex-direction:column;gap:6px;pointer-events:auto;z-index:10}
+.truck-icon{position:relative;display:flex;align-items:center;justify-content:center;width:clamp(36px,8vw,52px);height:clamp(36px,8vw,52px);background:var(--w);border-radius:var(--r-full);box-shadow:var(--sh-lg);text-decoration:none;color:var(--pri);transition:transform var(--tf),box-shadow var(--tf),background var(--tf);animation:iconFloat 3s ease-in-out infinite}
+.truck-icon--whatsapp{background:#25D366;color:var(--w);animation-delay:0s}
+.truck-icon--call{background:#1a6b6f;color:var(--w);animation-delay:1.5s}
+.truck-icon:hover,.truck-icon:focus{transform:scale(1.15);box-shadow:var(--sh-xl);z-index:20;outline:none}
+.truck-icon:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.truck-icon svg{width:clamp(18px,4vw,24px);height:clamp(18px,4vw,24px);flex-shrink:0}
+.truck-icon-tooltip{position:absolute;right:calc(100% + 8px);top:50%;transform:translateY(-50%);background:var(--g900);color:var(--w);padding:4px 10px;border-radius:var(--r-sm);font-size:.7rem;font-weight:500;white-space:nowrap;opacity:0;visibility:hidden;pointer-events:none;transition:opacity var(--tf),visibility var(--tf),transform var(--tf)}
+.truck-icon-tooltip::after{content:'';position:absolute;left:-5px;top:50%;transform:translateY(-50%);border:5px solid transparent;border-left-color:var(--g900)}
+.truck-icon:hover .truck-icon-tooltip,.truck-icon:focus .truck-icon-tooltip{opacity:1;visibility:visible;transform:translateY(-50%) translateX(0)}
+
+/* Animations */
+@keyframes truckDrive{
+  0%{transform:translateX(-100%) translateY(calc(30vh + 100px))}
+  15%{transform:translateX(15vw) translateY(calc(30vh + 100px))}
+  30%{transform:translateX(35vw) translateY(calc(25vh + 80px))}
+  45%{transform:translateX(55vw) translateY(calc(35vh + 120px))}
+  60%{transform:translateX(75vw) translateY(calc(28vh + 90px))}
+  75%{transform:translateX(90vw) translateY(calc(32vh + 110px))}
+  100%{transform:translateX(calc(100vw + 100%)) translateY(calc(30vh + 100px))}
+}
+
+@keyframes wheelSpin{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+
+@keyframes iconFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+}
+
+@keyframes speedLineMove{
+  0%{transform:scaleX(0);opacity:0.6}
+  100%{transform:scaleX(1);opacity:0}
+}
+
+@keyframes speedLinesFade{
+  0%,10%,90%,100%{opacity:0}
+  20%,80%{opacity:1}
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion:reduce){
+  .truck-container{animation:none;transform:translateX(-100%) translateY(calc(30vh + 100px))}
+  .wheel-spokes{animation:none}
+  .truck-speed-lines{animation:none;opacity:0}
+  .truck-icon{animation:none}
+  .truck-icon:hover,.truck-icon:focus{transform:scale(1.1)}
+}
+
+/* Responsive adjustments */
+@media (min-width:576px){
+  .truck-container{width:clamp(200px,30vw,320px)}
+  .truck-icons{gap:8px;top:-15px;right:-15px}
+  .truck-icon{width:clamp(40px,7vw,56px);height:clamp(40px,7vw,56px)}
+}
+
+@media (min-width:768px){
+  .truck-container{width:clamp(240px,25vw,360px)}
+  .truck-icons{gap:10px;top:-20px;right:-20px}
+  .truck-icon{width:clamp(44px,6vw,60px);height:clamp(44px,6vw,60px)}
+  .truck-speed-lines{left:-80px}
+}
+
+@media (min-width:992px){
+  .truck-container{width:clamp(280px,22vw,400px)}
+  .truck-speed-lines{left:-100px}
+}
+
+@media (min-width:1200px){
+  .truck-container{width:clamp(300px,20vw,440px)}
+}
+
+/* High contrast mode */
+@media (prefers-contrast:high){
+  .truck-svg{filter:drop-shadow(0 4px 8px rgba(0,0,0,.5))}
+  .truck-icon{border:2px solid var(--g900)}
+  .truck-icon--whatsapp{border-color:#14532d}
+  .truck-icon--call{border-color:#0f4a4d}
+}
+
+/* Print styles */
+@media print{
+  .truck-animation{display:none}
+}
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .6s var(--tb),transform .6s var(--tb)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-delay-1{transition-delay:.1s}
