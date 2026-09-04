@@ -22,3 +22,6 @@ AGENTS.md
 
 # opencode
 .opencode/
+
+# Agent tracking (local only)
+Assist_Agent/

@@ -1,0 +1,57 @@
+# GitHub Pages Custom Headers
+# https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-custom-headers-for-your-github-pages-site
+
+# Static assets - long-term caching with immutable
+/assets/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/images/*/logo-*.avif
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/images/*/logo-*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/images/*/hero-*.avif
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/images/*/hero-*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/images/*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/images/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/images/*.ico
+  Cache-Control: public, max-age=31536000, immutable
+
+/css/styles.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/script.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/sw.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/manifest.json
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML pages - shorter cache with revalidation
+/*.html
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Security headers
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# Preload hints for critical resources
+/
+  Link: <https://www.bhartiyapackersmovers.com/css/styles.css>; rel=preload; as=style
+  Link: <https://www.bhartiyapackersmovers.com/js/script.js>; rel=preload; as=script
+  Link: <https://www.bhartiyapackersmovers.com/assets/images/hero-1200w.avif>; rel=preload; as=image; type=image/avif
+  Link: <https://www.bhartiyapackersmovers.com/assets/images/logo-192w.avif>; rel=preload; as=image; type=image/avif
