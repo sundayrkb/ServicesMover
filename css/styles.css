@@ -1,3 +1,4 @@
+/* Below-the-fold styles - loaded deferred */
 :root{
   --bp-sm:576px;--bp-md:768px;--bp-lg:992px;--bp-xl:1200px;--bp-xxl:1400px;
   --fs-base:clamp(1rem,2.5vw,1.125rem);--fs-lg:clamp(1.125rem,3vw,1.25rem);
@@ -5,8 +6,7 @@
   --fs-3xl:clamp(2rem,5vw,2.5rem);--fs-4xl:clamp(2.5rem,6vw,3.5rem);
   --sp-xs:.5rem;--sp-sm:1rem;--sp-md:1.5rem;--sp-lg:2rem;--sp-xl:3rem;--sp-2xl:4rem;
   --pri:#1a6b6f;--pri-h:#145457;--pri-l:rgba(26,107,111,.08);--pri-d:#0f4a4d;
-  --acc:#16a36b;--acc-h:#148a5d;--acc-l:rgba(22,163,107,.12);
-  --w:#fff;--blk:#0f172a;
+  --acc:#1eb980;--acc-h:#189968;--acc-l:rgba(30,185,128,.12);--w:#fff;--blk:#0f172a;
   --g50:#f8fafc;--g100:#f1f5f9;--g200:#e2e8f0;--g300:#cbd5e1;--g400:#94a3b8;
   --g500:#64748b;--g600:#475569;--g700:#334155;--g800:#1e293b;--g900:#0f172a;
   --cpad:clamp(1rem,4vw,2rem);--spad:clamp(3rem,8vw,5rem);--cpad-c:clamp(1.5rem,4vw,2rem);
@@ -98,18 +98,18 @@ body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"H
 .contact-title{color:var(--w)!important;text-align:center}
 .contact-grid{display:grid;grid-template-columns:1fr;gap:var(--sp-lg)}
 .contact-item{background:rgba(255,255,255,.04);padding:var(--sp-md);border-radius:var(--r-lg);text-align:center;border:1px solid rgba(255,255,255,.08);transition:background var(--tn),border-color var(--tn),transform var(--tn),box-shadow var(--tn);display:flex;flex-direction:column;align-items:center}
-.contact-item:hover{background:rgba(255,255,255,.08);border-color:rgba(22,163,107,.3);transform:translateY(-4px);box-shadow:var(--sh-lg)}
-.contact-item svg{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;background:rgba(22,163,107,.15);color:var(--acc);border-radius:var(--r-lg);margin-bottom:var(--sp-md);font-size:var(--fs-lg);transition:background var(--tn),color var(--tn),transform var(--tn)}
+.contact-item:hover{background:rgba(255,255,255,.08);border-color:rgba(30,185,128,.3);transform:translateY(-4px);box-shadow:var(--sh-lg)}
+.contact-item svg{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;background:rgba(30,185,128,.15);color:var(--acc);border-radius:var(--r-lg);margin-bottom:var(--sp-md);font-size:var(--fs-lg);transition:background var(--tn),color var(--tn),transform var(--tn)}
 .contact-item:hover svg{background:var(--acc);color:var(--w);transform:scale(1.05)}
 .contact-item h3{font-size:var(--fs-base);font-weight:600;color:var(--w);margin-bottom:var(--sp-sm)}
-.contact-item .contact-link{display:block;color:var(--g200);font-size:var(--fs-base);text-decoration:none;transition:color var(--tf);line-height:1.6;min-width:0}
+.contact-item .contact-link{display:block;color:var(--g300);font-size:var(--fs-base);text-decoration:none;transition:color var(--tf);line-height:1.6;min-width:0}
 .contact-item .contact-link:hover,.contact-item .contact-link:focus{color:var(--acc)}
-.contact-detail{display:block;color:var(--g300);font-size:.875rem;margin-top:var(--sp-xs);font-weight:500}
+.contact-detail{display:block;color:var(--g400);font-size:.875rem;margin-top:var(--sp-xs);font-weight:500}
 
 /* WhatsApp Float */
-.whatsapp-float{position:fixed;bottom:calc(var(--sp-lg) + env(safe-area-inset-bottom));right:calc(var(--sp-lg) + env(safe-area-inset-right));background:#16a36b;color:var(--w);width:56px;height:56px;border-radius:var(--r-full);display:flex;align-items:center;justify-content:center;font-size:var(--fs-xl);text-decoration:none;box-shadow:var(--sh-xl);z-index:var(--z-sticky);transition:transform var(--tn),background var(--tn),box-shadow var(--tn)}
+.whatsapp-float{position:fixed;bottom:calc(var(--sp-lg) + env(safe-area-inset-bottom));right:calc(var(--sp-lg) + env(safe-area-inset-right));background:#25D366;color:var(--w);width:56px;height:56px;border-radius:var(--r-full);display:flex;align-items:center;justify-content:center;font-size:var(--fs-xl);text-decoration:none;box-shadow:var(--sh-xl);z-index:var(--z-sticky);transition:transform var(--tn),background var(--tn),box-shadow var(--tn)}
 @media (prefers-reduced-motion: no-preference){.whatsapp-float{animation:pulse 2s infinite}}
-.whatsapp-float:hover,.whatsapp-float:focus{transform:scale(1.1);background:#148a5d;color:var(--w);box-shadow:0 16px 40px rgba(22,163,107,.4)}
+.whatsapp-float:hover,.whatsapp-float:focus{transform:scale(1.1);background:#128C7E;color:var(--w);box-shadow:0 16px 40px rgba(37,211,102,.4)}
 .whatsapp-text{display:none}
 
 /* Zone page enhancements */
@@ -122,12 +122,12 @@ body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"H
 }
 
 @container hero (width >= 480px) and (width < 768px) {
-  .hero{min-height:calc(70svh - 80px)}
+  .hero{min-height:calc(70svh - 80px);min-height:calc(70dvh - 80px)}
   .hero-content{max-width:90%}
 }
 
 @container hero (width >= 768px) {
-  .hero{min-height:calc(100svh - 80px)}
+  .hero{min-height:calc(100svh - 80px);min-height:calc(100dvh - 80px)}
   .hero-content{max-width:880px}
 }
 
@@ -228,24 +228,24 @@ body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"H
 
 /* Footer */
 footer{scroll-margin-top:90px}
-.footer{background:var(--g900);color:var(--g300);padding:var(--sp-xl) 0 var(--sp-2xl);border-top:1px solid rgba(255,255,255,.05)}
+.footer{background:var(--g900);color:var(--g400);padding:var(--sp-xl) 0;border-top:1px solid rgba(255,255,255,.05)}
 .footer-grid{display:grid;grid-template-columns:1fr;gap:var(--sp-lg);text-align:center}
 .footer-brand .logo{margin-bottom:var(--sp-md);color:var(--w);justify-content:center}
-.footer-brand p{color:var(--g400);font-size:.875rem;line-height:1.7;margin-bottom:var(--sp-md)}
+.footer-brand p{color:var(--g500);font-size:.875rem;line-height:1.7;margin-bottom:var(--sp-md)}
 .footer-social{display:flex;gap:var(--sp-sm);justify-content:center}
-.footer-social a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;background:rgba(255,255,255,.08);border-radius:var(--r-full);color:var(--g300);transition:all var(--tf)}
+.footer-social a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;background:rgba(255,255,255,.08);border-radius:var(--r-full);color:var(--g400);transition:all var(--tf)}
 .footer-social a:hover{background:var(--acc);color:var(--w);transform:translateY(-2px)}
 .footer-nav h4{font-size:.875rem;font-weight:600;color:var(--w);text-transform:uppercase;letter-spacing:.08em;margin-bottom:var(--sp-md)}
 .footer-nav ul{list-style:none}
 .footer-nav li{margin-bottom:var(--sp-xs)}
-.footer-nav a{color:var(--g300);text-decoration:none;font-size:.875rem;transition:color var(--tf)}
+.footer-nav a{color:var(--g400);text-decoration:none;font-size:.875rem;transition:color var(--tf)}
 .footer-nav a:hover{color:var(--acc)}
 .footer-contact h4{font-size:.875rem;font-weight:600;color:var(--w);text-transform:uppercase;letter-spacing:.08em;margin-bottom:var(--sp-md)}
-.footer-contact address{color:var(--g300);font-size:.875rem;line-height:1.8}
-.footer-contact a{color:var(--g300);text-decoration:none;transition:color var(--tf)}
+.footer-contact address{color:var(--g400);font-size:.875rem;line-height:1.8}
+.footer-contact a{color:var(--g400);text-decoration:none;transition:color var(--tf)}
 .footer-contact a:hover{color:var(--acc)}
 .footer-bottom{display:flex;flex-direction:column;justify-content:center;align-items:center;padding-top:var(--sp-lg);border-top:1px solid rgba(255,255,255,.05);gap:var(--sp-sm)}
-.footer-bottom p{font-size:.75rem;color:var(--g400)}
+.footer-bottom p{font-size:.75rem;color:var(--g500)}
 .footer-bottom a{color:var(--acc);text-decoration:none;font-size:.75rem}
 .footer-bottom a:hover{text-decoration:underline}
 
@@ -295,7 +295,7 @@ footer{scroll-margin-top:90px}
 @media (prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 @media (prefers-contrast:high){.service-card,.contact-item,.testimonial-card,.process-step{border-width:2px}.cta-button{border:2px solid var(--g900)}.cta-button--secondary{border-width:3px}}
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
-@keyframes pulse{0%,100%{box-shadow:var(--sh-xl)}50%{box-shadow:0 16px 40px rgba(22,163,107,.5)}}
+@keyframes pulse{0%,100%{box-shadow:var(--sh-xl)}50%{box-shadow:0 16px 40px rgba(37,211,102,.5)}}
 
 /* Truck Animation - Mobile first */
 .truck-animation{position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:var(--z-sticky);overflow:hidden}
@@ -316,7 +316,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 /* Contact icons on truck */
 .truck-icons{position:absolute;top:-10px;right:-10px;display:flex;flex-direction:column;gap:6px;pointer-events:auto;z-index:10}
 .truck-icon{position:relative;display:flex;align-items:center;justify-content:center;width:clamp(36px,8vw,52px);height:clamp(36px,8vw,52px);background:var(--w);border-radius:var(--r-full);box-shadow:var(--sh-lg);text-decoration:none;color:var(--pri);transition:transform var(--tf),box-shadow var(--tf),background var(--tf);animation:iconFloat 3s ease-in-out infinite}
-.truck-icon--whatsapp{background:#16a36b;color:var(--w);animation-delay:0s}
+.truck-icon--whatsapp{background:#25D366;color:var(--w);animation-delay:0s}
 .truck-icon--call{background:#1a6b6f;color:var(--w);animation-delay:1.5s}
 .truck-icon:hover,.truck-icon:focus{transform:scale(1.15);box-shadow:var(--sh-xl);z-index:20;outline:none}
 .truck-icon:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
